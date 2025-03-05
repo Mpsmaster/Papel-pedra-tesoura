@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Rock Paper Scissors</title>
+    <title>Pedra Papel Tesoura - Melhor de Três</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -106,28 +106,28 @@
     </style>
 </head>
 <body>
-    <div id="title">Rock Paper Scissors - Best of Three</div>
-    <div id="instructions">Choose your move to play against the computer!</div>
+    <div id="title">Pedra Papel Tesoura - Melhor de Três</div>
+    <div id="instructions">Escolha seu movimento para jogar contra o computador!</div>
     <div id="choices">
-        <button onclick="playRound(0)">Rock</button>
-        <button onclick="playRound(1)">Paper</button>
-        <button onclick="playRound(2)">Scissors</button>
+        <button onclick="playRound(0)">Pedra</button>
+        <button onclick="playRound(1)">Papel</button>
+        <button onclick="playRound(2)">Tesoura</button>
     </div>
     <div id="game-area">
         <div class="choice-container">
-            <p>Your Choice:</p>
+            <p>Sua Escolha:</p>
             <pre id="user-choice"></pre>
         </div>
         <div class="choice-container">
-            <p>Computer's Choice:</p>
+            <p>Escolha do Computador:</p>
             <pre id="computer-choice"></pre>
         </div>
     </div>
     <div id="round-result"></div>
-    <div id="score">Player: 0  Computer: 0  Round: 0/3</div>
+    <div id="score">Jogador: 0  Computador: 0  Rodada: 0/3</div>
     <div id="final-result" style="display:none;">
         <p id="final-message"></p>
-        <button onclick="playAgain()">Play Again</button>
+        <button onclick="playAgain()">Jogar Novamente</button>
     </div>
     <script>
         const rock = `
@@ -183,18 +183,18 @@
                 // Determine winner
                 let result;
                 if (userChoice === computerChoice) {
-                    result = "Tie!";
+                    result = "Empate!";
                     roundResultElem.className = "tie";
                 } else if (
                     (userChoice === 0 && computerChoice === 2) ||
                     (userChoice === 1 && computerChoice === 0) ||
                     (userChoice === 2 && computerChoice === 1)
                 ) {
-                    result = "You win!";
+                    result = "Você venceu!";
                     playerScore++;
                     roundResultElem.className = "win";
                 } else {
-                    result = "You lose!";
+                    result = "Você perdeu!";
                     computerScore++;
                     roundResultElem.className = "lose";
                 }
@@ -204,17 +204,17 @@
                 roundResultElem.style.opacity = 1;
                 
                 // Update score
-                document.getElementById("score").textContent = `Player: ${playerScore}  Computer: ${computerScore}  Round: ${round}/3`;
+                document.getElementById("score").textContent = `Jogador: ${playerScore}  Computador: ${computerScore}  Rodada: ${round}/3`;
                 
                 // Check if game is over
                 if (round === 3) {
                     let finalMessage;
                     if (playerScore > computerScore) {
-                        finalMessage = "You won the game!";
+                        finalMessage = "Você venceu o jogo!";
                     } else if (playerScore < computerScore) {
-                        finalMessage = "Computer won the game!";
+                        finalMessage = "O computador venceu o jogo!";
                     } else {
-                        finalMessage = "It's a tie!";
+                        finalMessage = "É um empate!";
                     }
                     document.getElementById("final-message").textContent = finalMessage;
                     document.getElementById("final-result").style.display = "block";
@@ -233,7 +233,7 @@
             computerChoiceElem.style.opacity = 0;
             roundResultElem.textContent = "";
             roundResultElem.style.opacity = 0;
-            document.getElementById("score").textContent = "Player: 0  Computer: 0  Round: 0/3";
+            document.getElementById("score").textContent = "Jogador: 0  Computador: 0  Rodada: 0/3";
             document.getElementById("final-result").style.display = "none";
             document.querySelectorAll("#choices button").forEach(button => button.disabled = false);
         }
